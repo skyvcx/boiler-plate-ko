@@ -8,9 +8,11 @@ const bodyParser = require('body-parser');
 // package.json에 설치한 body-parser 모듈을 js로 불러들임 
 const {User} = require("./models/User");
 // models/User.js를 불러옴
+const config = require('./config/key');
+
+
 
 // 데이터를 분석하여가져올수있게 bodyParser설정을해줌
-
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 //application/json
@@ -19,14 +21,14 @@ app.use(bodyParser.json());
 
 const mongoose = require('mongoose')
 mongoose
-    .connect('mongodb+srv://skyvcx:qwer1234@boilerplate.g1mgi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    .connect(config.mongoURI)
     .then(() => console.log("DB Connection Successfull!"))
     .catch((err) => {
     console.log(err);
     });
 
 
-app.get('/',(req,res) => res.send('Hello World!'))
+app.get('/',(req,res) => res.send('Hello World!~~'))
 // 루트 디렉토리에 들어올경우 res.send로 HelloWorld! 를 출력하도록함
 
 app.post('/register',(req,res)=>{

@@ -37,5 +37,5 @@ const User = mongoose.model('User',userSchema)
 // 스프링 컨트롤로에서 모델에 변수넣는느낌 ?  model('변수명',변수에 들어갈내용)
 
 module.exports= {User}
-
+// 다른 파일에서 사용하기위한 exports 명칭
 
