@@ -33,9 +33,9 @@ const userSchema = mongoose.Schema({
     
 })
 
-const user = mongoose.model('user',userSchema)
+const User = mongoose.model('User',userSchema)
 // 스프링 컨트롤로에서 모델에 변수넣는느낌 ?  model('변수명',변수에 들어갈내용)
 
-module.exports= {user}
+module.exports= {User}
 
 
