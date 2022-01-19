@@ -31,12 +31,16 @@ mongoose
 app.get('/',(req,res) => res.send('Hello World!~~'))
 // 루트 디렉토리에 들어올경우 res.send로 HelloWorld! 를 출력하도록함
 
+//유저정보를 저장하는 코드
+
 app.post('/register',(req,res)=>{
 
     //회원가입 할때 필요한 정보들을 클라이언트 에서 가져오면
     // 그것들을 데이터베이스에 넣어준다.
     const user = new User(req.body)
     // req.body 안에는 json 형식으로 {id:"hello", password:"123"} = body-parser가 해당기능을 담당한다
+
+
 
     // 몽고DB에서 오는 메서드
     user.save((err,userInfo) =>{
@@ -47,6 +51,7 @@ app.post('/register',(req,res)=>{
     }) //user.save end
 })// app.post end
 
+// 유저정보를 저장하는 코드 종료
 
 app.listen(port,()=>console.log(`Example app listening on port ${port}!`))
 // app이 포트번호를 읽게되면 콘솔로그를 찍는다.
