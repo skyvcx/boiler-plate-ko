@@ -2,8 +2,7 @@ const express = require('express')
 // package.json에 설치한 express 모듈을 js로 불러들임 
 const app = express()
 // 새로운 express() app 을 만듬
-const port = 3000
-//localhost:3000 포트 사용
+
 const bodyParser = require('body-parser');
 // package.json에 설치한 body-parser 모듈을 js로 불러들임
 const cookieParser = require('cookie-parser');
@@ -117,6 +116,14 @@ app.get('/api/users/logout', auth, (req, res) => {
             })
         })
 })
+
+app.get('/api/hello',(req,res )=> {
+    res.send("안녕하세요!")
+})
+//프론트 LandingPage엔드포인트에서 넘어온입력을 서버에서 처리후  프론트로 다시보내주는역할
+
+const port = 5000
+//localhost:5000 포트 사용
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 // app이 포트번호를 읽게되면 콘솔로그를 찍는다.
