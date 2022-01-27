@@ -8,8 +8,19 @@ import {
 
 import LandingPage from './components/views/LandingPage/LandingPage'
 import LoginPage from './components/views/LoginPage/LoginPage'
+import RegisterPage from './components/views/RegisterPage/RegisterPage'
+import Auth from './hoc/auth'
+
 
 function App() {
+    const AuthLandingPage = Auth(LandingPage,null);
+    const Authlogin = Auth(LoginPage,false);
+    const AuthRegisterPage = Auth(RegisterPage,false);
+
+    
+
+
+
   return (
     
     <div>
@@ -19,11 +30,12 @@ function App() {
         <li>
           <Link to="/">Home</Link>
         </li>
+    
         <li>
-          <Link to="/LandingPage">LandingPage</Link>
+          <Link to="/loginPage">LoginPage</Link>
         </li>
         <li>
-          <Link to="/LoginPage">LoginPage</Link>
+          <Link to="/RegisterPage">RegisterPage</Link>
         </li>
       </ul>
 
@@ -32,8 +44,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/LandingPage" element={<LandingPage />}></Route>
-        <Route path="/LoginPage" element={<LoginPage />}></Route>
+        <Route path="/LandingPage" element={<AuthLandingPage />}></Route>
+        <Route path="/loginPage" element={<Authlogin />}></Route>
+        <Route path="/RegisterPage" element={<AuthRegisterPage />}></Route>
       </Routes>
     </Router>
   </div>
